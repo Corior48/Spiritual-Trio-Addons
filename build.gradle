@@ -27,6 +27,8 @@ sourceSets.main.resources {
 }
 
 repositories {
+    mavenCentral()
+
     exclusiveContent {
         forRepository {
             maven {
@@ -46,6 +48,11 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven { url 'https://maven.blamejared.com' }
 }
 
 base {
@@ -133,12 +140,21 @@ configurations {
 }
 
 dependencies {
-    // geckolib
+    // Geckolib Mod
     implementation("com.geckolib:geckolib-neoforge-${minecraft_version}:${geckolibVersion}")
+    // Just Enough Items Mod
     // compile against the JEI API but do not include it at runtime
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // load the full JEI jar for development testing on NeoForge
     localRuntime("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    // Curios API Mod
+    // Compile against only the API artifact
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+    // Use the full Curios API jar at runtime
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+    // Applied Energistics' GuideME Mod
+    compileOnly "org.appliedenergistics:guideme:${guideme_version}:api"
+    runtimeOnly "org.appliedenergistics:guideme:${guideme_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "spiritual_trio_addons:item/weapons/lyric_sword"
+  }
+}
